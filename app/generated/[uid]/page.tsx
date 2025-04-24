@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import OGPreview from "@/components/og-preview";
 import { Suspense } from "react";
 import OGPreviewSkeleton from "@/components/og-preview-skeleton";
@@ -25,14 +26,14 @@ export async function generateMetadata({
     };
   }
   const info = JSON.parse(cache);
-  const { title, description, image, url } = info;
+  const { title, description, image } = info;
 
   return {
     title,
     description,
     openGraph: {
-      type: "website",
-      url,
+      type:"website",
+      url: description,
       title,
       description,
       images: [image],
